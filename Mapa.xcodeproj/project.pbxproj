@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EFB89D81FA0AE5500AB9862 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB89D71FA0AE5500AB9862 /* MapMarker.swift */; };
 		AC5B000B1F9FC64C0058C4E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5B000A1F9FC64C0058C4E1 /* AppDelegate.swift */; };
 		AC5B000D1F9FC64C0058C4E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5B000C1F9FC64C0058C4E1 /* ViewController.swift */; };
 		AC5B00101F9FC64C0058C4E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5B000E1F9FC64C0058C4E1 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EFB89D71FA0AE5500AB9862 /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
 		AC5B00071F9FC64C0058C4E1 /* Mapa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5B000A1F9FC64C0058C4E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC5B000C1F9FC64C0058C4E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 		AC5B00091F9FC64C0058C4E1 /* Mapa */ = {
 			isa = PBXGroup;
 			children = (
+				8EFB89D71FA0AE5500AB9862 /* MapMarker.swift */,
 				AC5B000A1F9FC64C0058C4E1 /* AppDelegate.swift */,
 				AC5B000C1F9FC64C0058C4E1 /* ViewController.swift */,
 				AC5B000E1F9FC64C0058C4E1 /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			files = (
 				AC5B000D1F9FC64C0058C4E1 /* ViewController.swift in Sources */,
 				AC5B000B1F9FC64C0058C4E1 /* AppDelegate.swift in Sources */,
+				8EFB89D81FA0AE5500AB9862 /* MapMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +301,7 @@
 				AC5B001B1F9FC64C0058C4E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

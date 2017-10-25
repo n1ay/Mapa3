@@ -7,19 +7,58 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var clearAllButton: UIButton!
+
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        stopButton.isEnabled = false
+        centerMapOnUserLocation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func onStartPress(_ sender: UIButton) {
+        startButton.isEnabled = false
+        stopButton.isEnabled = true
+    }
+    @IBAction func onStopPress(_ sender: UIButton) {
+        startButton.isEnabled = true
+        stopButton.isEnabled = false
+    }
+    @IBAction func onClearAllPress(_ sender: UIButton) {
+        
+    }
+    
+    func centerMapOnUserLocation() {
+        print("update")
+        var speed: CLLocationSpeed = (locationManager.location?.speed)!
+        if speed < 0 {
+            speed = 0
+        }
+        let regionRadius: CLLocationDistance = CLLocationDistance((450*speed)+500)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+        
+        let when = DispatchTime.now() + 5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.centerMapOnUserLocation()
+        }
+    }
+    
+    
+    
 }
 

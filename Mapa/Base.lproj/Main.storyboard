@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mapa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamil Kos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61a-bb-yxS">
+                                <rect key="frame" x="16" y="16" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="L90-Og-OtQ">
+                                <rect key="frame" x="16" y="40.5" width="343" height="555.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="lvs-Jp-UBu"/>
+                                </constraints>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pbz-MS-lp6">
+                                <rect key="frame" x="32" y="633" width="311" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18P-Oe-vDO">
+                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="30"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="onStartPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Ti-UI-cqm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWn-vd-GrW">
+                                        <rect key="frame" x="103.5" y="0.0" width="104" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="onStopPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Dh-vL-ZoC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql2-tK-b2i">
+                                        <rect key="frame" x="207.5" y="0.0" width="103.5" height="30"/>
+                                        <state key="normal" title="Wyczyść"/>
+                                        <connections>
+                                            <action selector="onClearAllPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R1l-3b-RLr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adres" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNO-3f-GAg">
+                                <rect key="frame" x="24" y="600" width="327" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="g9D-TS-Cgm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pbz-MS-lp6" secondAttribute="bottom" constant="4" id="169-Dy-GoI"/>
+                            <constraint firstItem="KNO-3f-GAg" firstAttribute="top" secondItem="L90-Og-OtQ" secondAttribute="bottom" constant="4" id="7YQ-3r-v2A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L90-Og-OtQ" secondAttribute="trailing" id="CAH-00-2Zo"/>
+                            <constraint firstItem="L90-Og-OtQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Gp8-12-3hm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pbz-MS-lp6" secondAttribute="trailing" constant="16" id="I7p-0q-gUA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KNO-3f-GAg" secondAttribute="trailing" constant="8" id="J7b-hU-B1L"/>
+                            <constraint firstItem="Pbz-MS-lp6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="NTr-es-5zt"/>
+                            <constraint firstItem="L90-Og-OtQ" firstAttribute="top" secondItem="61a-bb-yxS" secondAttribute="bottom" constant="4" id="PGp-Gh-qhp"/>
+                            <constraint firstItem="61a-bb-yxS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="16" id="Rb5-Nd-9xa"/>
+                            <constraint firstItem="KNO-3f-GAg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="eTo-1I-qFR"/>
+                            <constraint firstItem="61a-bb-yxS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="r4h-Zb-j6y"/>
+                            <constraint firstItem="Pbz-MS-lp6" firstAttribute="top" secondItem="KNO-3f-GAg" secondAttribute="bottom" constant="4" id="umH-ZE-r2q"/>
+                            <constraint firstAttribute="trailing" secondItem="61a-bb-yxS" secondAttribute="trailing" constant="16" id="zCf-kz-Uh6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="KNO-3f-GAg" id="FHn-Yr-n6K"/>
+                        <outlet property="clearAllButton" destination="Ql2-tK-b2i" id="7tu-8B-hSE"/>
+                        <outlet property="mapView" destination="L90-Og-OtQ" id="yE7-XA-Wxp"/>
+                        <outlet property="startButton" destination="18P-Oe-vDO" id="f6O-gz-gFn"/>
+                        <outlet property="stopButton" destination="mWn-vd-GrW" id="i7K-MK-dHD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>
