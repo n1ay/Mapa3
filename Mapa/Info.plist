@@ -28,6 +28,12 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Mapa</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Mapa</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Mapa</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
