@@ -17,6 +17,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var clearAllButton: UIButton!
     
+    //config
+    let updateTime = 5
+    let mapRangeSpeedFactor = 15.0
+    let mapRangeBaseRange = 75.0
+    
     let locationManager: CLLocationManager = CLLocationManager()
     var paused: Bool = true
     var isRunning: Bool = false
@@ -71,25 +76,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             return
         }
         if let location = locationManager.location {
-            if let speed = location.speed as? CLLocationSpeed {
-                let regionRadius: CLLocationDistance = CLLocationDistance((25*speed)+150)
-                let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,                                                                  regionRadius, regionRadius)
-                addressLabel.text = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
-                mapView.setRegion(coordinateRegion, animated: true)
-                let marker = MapMarker(coordinate: location.coordinate)
-                mapView.addAnnotation(marker)
-                markers.append(marker)
-                
-            }
+            let speed = location.speed
+            let regionRadius: CLLocationDistance = CLLocationDistance((mapRangeSpeedFactor*speed)+mapRangeBaseRange)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,                                                                  regionRadius, regionRadius)
+            addressLabel.text = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
+            mapView.setRegion(coordinateRegion, animated: true)
+            let marker = MapMarker(coordinate: location.coordinate)
+            mapView.addAnnotation(marker)
+            markers.append(marker)
             
-            let when = DispatchTime.now() + 5
+            let when = DispatchTime(uptimeNanoseconds: (DispatchTime.now().uptimeNanoseconds + UInt64(updateTime*1000000000)))
             DispatchQueue.main.asyncAfter(deadline: when) {
                 self.onUpdate()
             }
         }
     }
-    
-    
-    
+
 }
 
